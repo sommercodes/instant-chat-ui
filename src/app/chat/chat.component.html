@@ -1,0 +1,39 @@
+
+
+
+<div class="demo-layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Title</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <button (click)="logout()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</button>
+
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Online Users</span>
+      <li class="mdl-list__item" *ngFor="let userOnline of usersOnline">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-icon">person</i>
+          {{userOnline}}
+        </span>
+      </li>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <form [formGroup]="complexForm" (ngSubmit)="sendMsg(complexForm.value)">
+        <label>message:</label>
+        <input class="form-control" type="text" placeholder="msg" [formControl]="complexForm.controls['msg']">
+        <button type="submit">Send</button>
+      
+      </form>
+    </div>
+  </main>
+</div>
+
