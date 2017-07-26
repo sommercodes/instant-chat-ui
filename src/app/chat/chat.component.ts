@@ -38,6 +38,7 @@ export class ChatComponent implements OnInit {
   usersOnline: any[];
   token: string;
   messages2: string[];
+  sidenavOpen: boolean
 
   // We are passing an instance of the FormBuilder to our constructor
   constructor(fb: FormBuilder, private loginService: LoginService, private socketService: SocketService, private router: Router){
@@ -51,7 +52,7 @@ export class ChatComponent implements OnInit {
     this.token = localStorage.getItem('token');
     this.user = this.jwtHelper.decodeToken(this.token)._doc.name;
     this.messages = ['test', 'test','test','test','test','test','test','test','test','test','test', 'test','test','test','test','test','test','test','test','test'];
-
+    this.sidenavOpen = true;
 
   }
   ngOnInit() {
@@ -91,6 +92,10 @@ export class ChatComponent implements OnInit {
 
   sendMsg(value: any):void{
     this.socketService.sendMsg(value.msg, this.user);
+  }
+
+  toggleSidenavIcon() {
+    this.sidenavOpen = !this.sidenavOpen;
   }
 
 }

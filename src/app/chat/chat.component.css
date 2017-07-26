@@ -44,8 +44,8 @@ html, body, material-app, md-sidenav-container {
 }
 
 .test2 {
-    height: 80%;
-    width: 80%
+    height: 100%;
+    width: 100%
 }
 
 .message-title {
@@ -54,4 +54,11 @@ html, body, material-app, md-sidenav-container {
 
 .message-icon {
     padding-right: 15px;
+}
+
+.logout-btn {
+    bottom: 0;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

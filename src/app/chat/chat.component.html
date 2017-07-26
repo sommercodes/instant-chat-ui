@@ -2,6 +2,7 @@
 <md-sidenav-container class="page-content">
   <md-sidenav #sidenav class="users-online" opened="true" mode="side">
     <md-toolbar color="primary">
+      <md-icon class="white-icon message-icon" md-list-icon>message</md-icon>
       <span>Instant Chat</span>
     </md-toolbar>
     <md-list>
@@ -10,16 +11,17 @@
         <h3 class="white-text" md-line> {{userOnline}} </h3>
       </md-list-item>
     </md-list>
+    <div class="logout-btn">
+      <button md-raised-button color="accent" (click)="logout()">Log out</button>
+    </div>
   </md-sidenav>
 
-    <button md-icon-button  (click)="sidenav.toggle()">
-      <md-icon class="md-24" color="primary" >menu</md-icon>
-    </button>￼
-    <button md-raised-button color="accent" (click)="logout()">Log out</button>
-  
+
       <div class="mdl-card mdl-shadow--2dp test2">
         <div class="mdl-card__title message-title mdl-card--expand">
-                <md-icon class="md-24" color="primary" class="message-icon" >message</md-icon> 
+        <button class="mdl-button mdl-js-button mdl-button--icon" (click)="sidenav.toggle()">
+          <md-icon class="md-24" color="primary" >menu</md-icon>
+        </button>
                 Instant Messages 
         </div>
         <div class="mdl-card__actions mdl-card--border test">
