@@ -1,3 +1,4 @@
+<div class="background">
 <div class="mdl-grid">
   <div class="login-card mdl-cell--4-offset mdl-cell mdl-cell--4-col">
     <div class="mdl-card mdl-shadow--2dp">
@@ -5,20 +6,21 @@
             Login To Instant Chat
         </div>
         <div class="mdl-card__actions mdl-card--border">
-        <form [formGroup]="complexForm" (ngSubmit)="login(complexForm.value)">
-            <md-input-container class="login-input">
-                <input mdInput #username maxlength="256" placeholder="Username"
-                [formControl]="complexForm.controls['username']">
-            </md-input-container>
+            <form [formGroup]="complexForm" (ngSubmit)="login(complexForm.value)">
+                <md-input-container class="login-input">
+                    <input mdInput #username maxlength="256" placeholder="Username"
+                    [formControl]="complexForm.controls['username']">
+                </md-input-container>
 
-            <md-input-container class="login-input">
-                <input mdInput #password maxlength="256" placeholder="Password"
-                [formControl]="complexForm.controls['password']">
-            </md-input-container>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" [disabled]="!complexForm.valid">Login</button>
-        </form>
-    </div>
+                <md-input-container class="login-input">
+                    <input mdInput #password maxlength="256" placeholder="Password"
+                    [formControl]="complexForm.controls['password']">
+                </md-input-container>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" [disabled]="!complexForm.valid">Login</button>
+            </form>
+        </div>
   </div>
+</div>
 </div>
 </div>
 

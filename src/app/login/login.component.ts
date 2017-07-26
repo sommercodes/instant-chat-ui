@@ -26,7 +26,8 @@ export class LoginComponent {
       // We can set default values by passing in the corresponding value or leave blank if we wish to not set the value. For our example, we’ll default the gender to female.
       'username' : ['', Validators.required],
       'password': ['', Validators.required]
-    })
+    });
+
   }
 
   // Again we’ll implement our form submit function that will just console.log the results of our form

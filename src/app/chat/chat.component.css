@@ -1,0 +1,57 @@
+md-sidenav {
+  width: 200px;
+}
+
+.users-online {
+    background-color: #3f51b5;
+}
+
+h3.white-text {
+    color:white;
+}
+
+md-icon.white-icon {
+    color:white;
+}
+
+.page-content {
+    background-color: white;
+}
+
+html, body, material-app, md-sidenav-container {
+  margin: 0;
+  height: 100%;
+}
+
+.messages {
+    height: 70%;
+    width: 80%;
+    background-color: #f4f4f4;
+
+}
+.message-container {
+    padding-left: 10px;
+    width: 95%;
+}
+
+.message-list {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.test {
+    overflow-y: scroll;
+}
+
+.test2 {
+    height: 80%;
+    width: 80%
+}
+
+.message-title {
+    height: 150px; 
+}
+
+.message-icon {
+    padding-right: 15px;
+}

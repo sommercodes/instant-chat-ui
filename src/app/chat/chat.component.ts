@@ -1,18 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, HostListener } from '@angular/core';
 import { SocketService } from '../socket.service';
 import { LoginService } from '../login/login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { JwtHelper } from 'angular2-jwt';
 import { Router } from '@angular/router'; 
+import {MdInputModule, MdToolbarModule, MdCardModule, MdButtonModule, MdSidenavModule, MdSidenav, MdListModule} from '@angular/material';
+
+
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
-  providers: [SocketService, LoginService]
+  providers: [SocketService, LoginService],
+  encapsulation: ViewEncapsulation.None
 })
 export class ChatComponent implements OnInit {
+  @ViewChild('sidenav') sidenav: MdSidenav;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+      if (event.target.innerWidth < 700) {
+          this.sidenav.close();
+      } 
+      else if (event.target.innerWidth >= 700){
+          this.sidenav.open();
+      }
+  }
   jwtHelper: JwtHelper = new JwtHelper();
   complexForm : FormGroup;
   chatConnection;
@@ -22,6 +37,7 @@ export class ChatComponent implements OnInit {
   users: any[];
   usersOnline: any[];
   token: string;
+  messages2: string[];
 
   // We are passing an instance of the FormBuilder to our constructor
   constructor(fb: FormBuilder, private loginService: LoginService, private socketService: SocketService, private router: Router){
@@ -34,6 +50,8 @@ export class ChatComponent implements OnInit {
     this.usersOnline = [];
     this.token = localStorage.getItem('token');
     this.user = this.jwtHelper.decodeToken(this.token)._doc.name;
+    this.messages = ['test', 'test','test','test','test','test','test','test','test','test','test', 'test','test','test','test','test','test','test','test','test'];
+
 
   }
   ngOnInit() {
