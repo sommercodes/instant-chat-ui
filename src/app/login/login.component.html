@@ -13,7 +13,7 @@
                 </md-input-container>
 
                 <md-input-container class="login-input">
-                    <input mdInput #password maxlength="256" placeholder="Password"
+                    <input type="password" mdInput #password maxlength="256" placeholder="Password"
                     [formControl]="complexForm.controls['password']">
                 </md-input-container>
                 <button md-raised-button color="accent" type="submit" [disabled]="!complexForm.valid">Login</button>
