@@ -27,15 +27,18 @@
         <div class="mdl-card__actions mdl-card--border test">
           <md-list>
             <md-list-item *ngFor="let message of messages">
-              <p md-line>sommer: {{message}} </p>
+              <p md-line>{{message.user}}: {{message.msg}} </p>
             </md-list-item>
           </md-list>
 
         </div>
         <div class="mdl-card__actions mdl-card--border">
+            <form [formGroup]="complexForm" (ngSubmit)="sendMsg(complexForm.value)">
               <md-input-container class="message-container">
-                <input mdInput placeholder="Message: " >
+                <input mdInput #msg placeholder="Message: " 
+                [formControl]="complexForm.controls['msg']">
               </md-input-container>
+            </form>
         </div>
       </div>
       <!--

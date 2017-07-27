@@ -51,14 +51,13 @@ export class ChatComponent implements OnInit {
     this.usersOnline = [];
     this.token = localStorage.getItem('token');
     this.user = this.jwtHelper.decodeToken(this.token)._doc.name;
-    this.messages = ['test', 'test','test','test','test','test','test','test','test','test','test', 'test','test','test','test','test','test','test','test','test'];
+    this.messages = [];
     this.sidenavOpen = true;
 
   }
   ngOnInit() {
     this.chatConnection = this.socketService.getMessages().subscribe(message => {
       this.messages.push(message);
-      console.log(this.messages);
     });
     this.socketService.getUserJoined().subscribe(user => {
       this.usersOnline.push(user);
@@ -91,6 +90,8 @@ export class ChatComponent implements OnInit {
   }
 
   sendMsg(value: any):void{
+    console.log(value);
+    this.complexForm.reset();
     this.socketService.sendMsg(value.msg, this.user);
   }
 

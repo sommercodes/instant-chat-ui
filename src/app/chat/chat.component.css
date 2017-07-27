@@ -41,6 +41,7 @@ html, body, material-app, md-sidenav-container {
 
 .test {
     overflow-y: scroll;
+    height: 100%;
 }
 
 .test2 {
