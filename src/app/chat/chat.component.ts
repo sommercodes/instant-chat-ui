@@ -77,6 +77,10 @@ export class ChatComponent implements OnInit {
         }
       }
     });
+
+    this.socketService.getMessagesInit().subscribe(messages => {
+      this.messages = messages;
+    });
   }
 
   logout(){
@@ -90,7 +94,6 @@ export class ChatComponent implements OnInit {
   }
 
   sendMsg(value: any):void{
-    console.log(value);
     this.complexForm.reset();
     this.socketService.sendMsg(value.msg, this.user);
   }

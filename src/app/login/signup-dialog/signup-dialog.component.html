@@ -1,0 +1,23 @@
+<h4>Sign up for Instant-Chat!</h4>
+  <form [formGroup]="complexForm" (ngSubmit)="createUser(complexForm.value)">
+      <md-input-container class="login-input">
+          <input mdInput #username maxlength="256" placeholder="Username"
+          [formControl]="complexForm.controls['username']">
+      </md-input-container>
+
+      <md-input-container class="login-input">
+          <input mdInput #password maxlength="256" placeholder="Password"
+          [formControl]="complexForm.controls['password']">
+      </md-input-container>
+      <button md-raised-button type="submit" color="accent" [disabled]="!complexForm.valid" 
+          >Sign Up!</button>
+      <button type="button" md-raised-button color="warn" 
+          (click)="dialogRef.close()">Cancel</button>
+  </form>
+
+<!--
+<button type="button" md-raised-button 
+    (click)="dialogRef.close(true)">Sign Up!</button>
+<button type="button" md-button 
+    (click)="dialogRef.close()">Cancel</button>
+-->

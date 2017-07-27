@@ -10,16 +10,21 @@ import { ChatComponent } from './chat/chat.component'
 import { AuthGuard } from './auth.guard'
 import { LoginGuard } from './login.guard'
 
-
+import { DialogService } from './dialog.service';
+import { MdDialogModule, MdButtonModule  } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import "hammerjs";
+import { ImportComponent } from './login/import/import.component';
+import { SignupDialogComponent } from './login/signup-dialog/signup-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ChatComponent
+    ChatComponent,
+    ImportComponent,
+    SignupDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -28,6 +33,8 @@ import "hammerjs";
     HttpModule,     
     ReactiveFormsModule,
     MaterialModule,
+    MdDialogModule,
+    MdButtonModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -41,7 +48,10 @@ import "hammerjs";
       }
     ])
   ],
-  providers: [AuthGuard, LoginGuard],
+  entryComponents: [
+    SignupDialogComponent,
+  ],
+  providers: [AuthGuard, LoginGuard, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

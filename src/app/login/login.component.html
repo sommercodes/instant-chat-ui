@@ -16,8 +16,11 @@
                     <input mdInput #password maxlength="256" placeholder="Password"
                     [formControl]="complexForm.controls['password']">
                 </md-input-container>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" [disabled]="!complexForm.valid">Login</button>
+                <button md-raised-button color="accent" type="submit" [disabled]="!complexForm.valid">Login</button>
+                <button md-raised-button color="primary" (click)="openDialog()">Sign Up</button>
+
             </form>
+
         </div>
   </div>
 </div>

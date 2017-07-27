@@ -60,7 +60,18 @@ export class SocketService {
       }; 
     })    
     return observable;
-  }  
+  } 
+  
+  getMessagesInit() {
+    let authToken = localStorage.getItem('token');
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('x-access-token', authToken);
+
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(this.apiURL + '/api/messages', options)
+    .map((res:Response) => res.json());
+  }
 
   getUsersInit() {
     let authToken = localStorage.getItem('token');

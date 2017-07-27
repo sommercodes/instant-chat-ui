@@ -16,6 +16,11 @@ export class LoginService {
     .map((res:Response) => res.json());
   }
 
+  createUser(username: string, password: string) {
+    return this.http.post(this.apiURL + '/api/user', {name: username, password: password})
+    .map((res:Response) => res.json());
+  }
+
 
   logout(username: string) {
     let authToken = localStorage.getItem('token');
