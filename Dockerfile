@@ -9,9 +9,9 @@ COPY package.json .
 # For npm@5 or later, copy package-lock.json as well
 # COPY package.json package-lock.json .
 
-RUN npm install -g node-gyp
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-RUN npm install socket.io
+RUN npm i--unsafe-perm node-sass
 
 RUN npm install
 
