@@ -6,7 +6,7 @@ var morgan      = require('morgan');
 
 var app = express();
 var server = require('http').Server(app);
-port = process.env.PORT || 4200;
+port = process.env.PORT || 8080;
 
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
