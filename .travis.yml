@@ -24,8 +24,9 @@ deploy:
 
 before_deploy:
   - npm run build:prod
+  - ls
   - docker build -t chat-ui .
   - docker images
-  - docker run -p 4000:4200 -d chat-ui
+  - docker run -p 4000:8080 -d chat-ui
   - sleep 15
   - docker ps
