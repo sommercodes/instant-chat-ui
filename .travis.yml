@@ -1,0 +1,27 @@
+language: node_js
+
+sudo: required
+
+services:
+  - docker
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key:
+    secure: "$SECRETACCESSKEY"
+  region: "ca-central-1"  
+  app: "instant-chat-ui"
+  env: "instant-chat-ui"
+  bucket_name: "elasticbeanstalk-ca-central-1-882371129764"
+  on:
+    branch: master
+
+
+
+before_script:
+  - docker build -t chat-ui .
+  - docker images
+  - docker run -p 4000:8080 -e SECRET=$SECRET -e DBCONFIG=$DBCONFIG -d chat-ui
+  - sleep 15
+  - docker ps
