@@ -9,6 +9,8 @@ services:
 
 
 deploy:
+  - echo "printing files before deploy, should contain dist"
+  - ls -l
   provider: elasticbeanstalk
   access_key_id: $ACCESSKEYID
   secret_access_key:
@@ -23,8 +25,11 @@ deploy:
 
 
 before_deploy:
+  - echo "printing files before build and deploy"
+  - ls -l
   - npm run build:prod
-  - ls
+  - echo "printing files after build and before deploy"
+  - ls -l
   - docker build -t chat-ui .
   - docker images
   - docker run -p 4000:8080 -d --name chat chat-ui
