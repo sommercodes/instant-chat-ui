@@ -1,7 +1,11 @@
 branch-defaults:
   master:
-    environment: instant-chat-ui
+    environment: instant-chat-ui-dev
     group_suffix: null
+environment-defaults:
+  instant-chat-ui:
+    branch: null
+    repository: null
 global:
   application_name: instant-chat-ui
   branch: null
