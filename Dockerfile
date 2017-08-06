@@ -11,7 +11,7 @@ COPY package.json .
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-RUN npm i--unsafe-perm node-sass
+RUN npm install --unsafe-perm node-sass
 
 RUN npm install
 
