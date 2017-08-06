@@ -9,8 +9,6 @@ services:
 
 
 deploy:
-  - echo "printing files before deploy, should contain dist"
-  - ls -l
   provider: elasticbeanstalk
   access_key_id: $ACCESSKEYID
   secret_access_key:
@@ -22,7 +20,9 @@ deploy:
   on:
     branch: master
 
-
+after_deploy:
+  - echo "printing files after deploy, should contain dist"
+  - ls -l
 
 before_deploy:
   - echo "printing files before build and deploy"
