@@ -5,9 +5,11 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json .
-# COPY npm-shrinkwrap.json .
+COPY npm-shrinkwrap.json .
 # For npm@5 or later, copy package-lock.json as well
 # COPY package.json package-lock.json .
+
+RUN apt-get install node-gyp
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
