@@ -11,8 +11,15 @@ COPY npm-shrinkwrap.json .
 
 RUN npm install
 
+RUN ls
+
 # Bundle app source
 COPY . .
+
+RUN npm run build:prod
+
+RUN ls
+RUN ls dist
 
 EXPOSE 8080
 
