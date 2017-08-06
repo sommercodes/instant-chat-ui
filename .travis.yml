@@ -20,8 +20,8 @@ deploy:
 
 
 
-before_script:
-  - npm run build
+before_deploy:
+  - npm run build:prod
   - docker build -t chat-ui .
   - docker images
   - docker run -p 4000:4200 -d chat-ui
