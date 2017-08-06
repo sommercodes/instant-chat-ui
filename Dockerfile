@@ -1,4 +1,4 @@
-FROM node:boron
+FROM node:6
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -8,6 +8,10 @@ COPY package.json .
 COPY npm-shrinkwrap.json .
 # For npm@5 or later, copy package-lock.json as well
 # COPY package.json package-lock.json .
+
+RUN npm install -g node-gyp
+
+RUN npm install socket.io
 
 RUN npm install
 
