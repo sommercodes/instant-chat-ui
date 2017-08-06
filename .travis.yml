@@ -21,6 +21,7 @@ deploy:
 
 
 before_script:
+  - npm run build
   - docker build -t chat-ui .
   - docker images
   - docker run -p 4000:4200 -d chat-ui
