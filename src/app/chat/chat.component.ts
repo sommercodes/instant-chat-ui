@@ -60,12 +60,16 @@ export class ChatComponent implements OnInit {
       this.messages.push(message);
     });
     this.socketService.getUserJoined().subscribe(user => {
-      this.usersOnline.push(user);
+      if (user !== this.user){
+        this.usersOnline.push(user);
+      }
     });
     this.socketService.userLeft().subscribe(user => {
-      let index = this.usersOnline.indexOf(user, 0);
-      if (index > -1) {
-        this.usersOnline.splice(index, 1);
+      if (user !== this.user){
+        let index = this.usersOnline.indexOf(user, 0);
+        if (index > -1) {
+          this.usersOnline.splice(index, 1);
+        }
       }
     });
 
