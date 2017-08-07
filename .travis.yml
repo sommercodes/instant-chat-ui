@@ -20,19 +20,26 @@ services:
 #   on:
 #     branch: master
 
-after_deploy:
-  - echo "printing files after deploy, should contain dist"
-  - ls -l
+deploy:
+  provider: heroku
+  api_key:
+    secure: "$HEROKUACCESS"
+  on:
+  branch: master
 
-before_deploy:
-  - echo "printing files before build and deploy"
-  - ls -l
-  - npm run build:prod
-  - echo "printing files after build and before deploy"
-  - ls -l
-  - docker build -t chat-ui .
-  - docker images
-  - docker run -p 4000:8080 -d --name chat chat-ui
-  - sleep 15
-  - docker exec chat ls dist
-  - docker ps
+
+after_deploy:
+  - echo "done deploying to heroku"
+
+# before_deploy:
+#   - echo "printing files before build and deploy"
+#   - ls -l
+#   - npm run build:prod
+#   - echo "printing files after build and before deploy"
+#   - ls -l
+#   - docker build -t chat-ui .
+#   - docker images
+#   - docker run -p 4000:8080 -d --name chat chat-ui
+#   - sleep 15
+#   - docker exec chat ls dist
+#   - docker ps
